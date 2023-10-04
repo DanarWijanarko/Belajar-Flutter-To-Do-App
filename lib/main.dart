@@ -119,7 +119,7 @@ class _MyTodoAppState extends State<MyTodoApp> {
                     ),
                   ),
                   child: const Icon(
-                    size: 40,
+                    size: 32,
                     Icons.add,
                     color: Colors.grey,
                   ),
@@ -130,6 +130,7 @@ class _MyTodoAppState extends State<MyTodoApp> {
           // End of Input Add Task
           const MyDivider(),
           // Start of Tasks Card List
+
           Expanded(
             child: ListView.builder(
               itemCount: tasks.length,
@@ -155,33 +156,38 @@ class _MyTodoAppState extends State<MyTodoApp> {
                       color: Colors.white,
                       child: Container(
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 20,
-                          vertical: 10,
+                          horizontal: 10,
+                          vertical: 5,
                         ),
                         child: ListTile(
                           title: Text(
                             tasks[index],
                             style: const TextStyle(
                               letterSpacing: 1,
-                              fontSize: 17,
+                              fontSize: 18,
                               fontWeight: FontWeight.w700,
                             ),
                           ),
-                          trailing: ElevatedButton(
-                            onPressed: () {
-                              removeTask(index);
-                            },
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.white,
-                              padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 18),
-                              shape: const RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(100)),
+                          trailing: SizedBox(
+                            width: 35,
+                            height: 35,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                removeTask(index);
+                              },
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.white,
+                                padding: const EdgeInsets.only(left: 0),
+                                shape: const RoundedRectangleBorder(
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(100)),
+                                ),
                               ),
-                            ),
-                            child: const Icon(
-                              size: 30,
-                              Icons.delete,
-                              color: Colors.grey,
+                              child: const Icon(
+                                size: 25,
+                                Icons.delete,
+                                color: Colors.grey,
+                              ),
                             ),
                           ),
                         ),
@@ -192,8 +198,8 @@ class _MyTodoAppState extends State<MyTodoApp> {
               },
             ),
           ),
-          // End of Task Card List
         ],
+        // End of Task Card List
       ),
     );
   }
